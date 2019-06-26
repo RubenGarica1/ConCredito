@@ -3,26 +3,30 @@ import React from 'react';
 import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import { Navbar, NavDropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
-import Ventas from './containers/Venta'
+import Ventas from './containers/Ventas'
 import Add from './containers/Add';
 const date = new Date();
 
 const NavB = () => (
   <div>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <NavDropdown title="Inicio" id="basic-nav-dropdown">
-        <Link className="dropdown-item" to="/ventas/">Ventas</Link>
-        <NavDropdown.Divider />
-        <Link className="dropdown-item" to="/Clientes/">Clientes</Link>
-        <Link className="dropdown-item" to="/Articulos/">Articulos</Link>
-        <Link className="dropdown-item" to="/Configuración/">Configuración</Link>
-      </NavDropdown>
-      <p className="text-white">
-        fecha:
-  <Moment format="DD/MM/YYYY">
-          {date}
-        </Moment>
-      </p>
+    <div className="container-fluid">
+
+          <NavDropdown title="Inicio" id="basic-nav-dropdown">
+            <Link className="dropdown-item" to="/ventas/">Ventas</Link>
+            <NavDropdown.Divider />
+            <Link className="dropdown-item" to="/Clientes/">Clientes</Link>
+            <Link className="dropdown-item" to="/Articulos/">Articulos</Link>
+            <Link className="dropdown-item" to="/Configuración/">Configuración</Link>
+          </NavDropdown>
+
+          <p className="text-white">
+            fecha:
+            <Moment format="DD/MM/YYYY">
+              {date}
+            </Moment>
+          </p>
+      </div>
     </Navbar>
   </div>
 )

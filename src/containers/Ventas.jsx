@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import add from './add.png';
 
-export class Venta extends Component {
+export class Ventas extends Component {
   render() {
     return (
       <div>
@@ -39,4 +39,4 @@ export class Venta extends Component {
   }
 }
 
-export default Venta
+export default Ventas
