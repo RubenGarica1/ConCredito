@@ -102,7 +102,7 @@ export class Ventas extends Component {
                   <td>{art.id}</td>
                   <td>{this.clave(art.nombre)}</td>
                   <td>{art.nombre}</td>
-                  <td>{art.total}</td>
+                  <td>${art.total}</td>
                   <td>{art.fecha}</td>
                 </tr>
                   );
