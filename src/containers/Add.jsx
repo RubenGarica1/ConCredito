@@ -98,7 +98,7 @@ export class Add extends Component {
   }
   guardar() {
      
-    fetch('http://localhost:8080/app/venta', {
+    fetch('http://134.209.71.172:8080/app/venta', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
