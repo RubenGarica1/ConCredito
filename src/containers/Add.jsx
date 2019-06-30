@@ -97,7 +97,6 @@ export class Add extends Component {
     console.log("algo")
   }
   guardar() {
-    let self = this;   
      
     fetch('http://localhost:8080/app/venta', {
       method: 'POST',

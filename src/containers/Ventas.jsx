@@ -17,11 +17,12 @@ export class Ventas extends Component {
     //console.log(clave)
     let userAll = this.state.user;
     let algo = []
-    userAll.find(function(element) {
+    userAll.find((element) => {
       if ( element.nombre === clave){
         algo.push(element.id)
         console.log(true)
       }
+      return 0;
     });
     //console.log(ArticulosSel)
     console.log(algo[0])
