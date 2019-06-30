@@ -5,6 +5,8 @@ import { Navbar, NavDropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import Ventas from './containers/Ventas'
 import Add from './containers/Add';
+import Add2 from './containers/Add2';
+import Todo from './containers/todo';
 const date = new Date();
 
 const NavB = () => (
@@ -46,6 +48,8 @@ const App = () => (
       <Route exact path="/Clientes/" component={Clientes} />
       <Route exact path="/Articulos/" component={Articulos} />
       <Route exact path="/Configuración/" component={Configuración} />
+      <Route exact path="/Ventas/add2" component={Add2} />
+      <Route exact path="/Ventas/Todo" component={Todo} />
       <Redirect exact from="/" to="/Ventas/" />
     </Switch>
   </div>

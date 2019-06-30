@@ -1,10 +1,74 @@
 import React, { Component } from 'react';
-import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import add from './add.png';
 
 export class Ventas extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      venta:[],
+      user: []
+    };
+  }
+  clave(clave){
+    //console.log(clave)
+    let userAll = this.state.user;
+    let algo = []
+    userAll.find(function(element) {
+      if ( element.nombre === clave){
+        algo.push(element.id)
+        console.log(true)
+      }
+    });
+    //console.log(ArticulosSel)
+    console.log(algo[0])
+
+    return algo[0];
+  }
+  componentDidMount() {
+    
+    let self = this;
+    fetch('http://134.209.71.172:8080/app/venta', {
+      method: 'GET',
+      headers: new Headers({
+        "Access-Control-Allow-Origin": "*"
+      })
+    })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (resJson) {
+        let venta = resJson;
+        
+        //console.log(venta)
+        //console.log(user)
+        self.setState({
+          venta
+        })
+        return venta
+      })
+      fetch('http://134.209.71.172:8080/app/cliente', {
+        method: 'GET',
+        headers: new Headers({
+          "Access-Control-Allow-Origin": "*"
+        })
+      })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (resJson) {
+          let user = resJson;
+          
+          //console.log(user)
+          self.setState({
+            user
+          })
+          return user
+        })
+  }
   render() {
     return (
       <div>
@@ -20,17 +84,31 @@ export class Ventas extends Component {
             <p className="text-primary">Ventas Activas</p>
             </div>
             <div className="col-11">
-              <Table responsive="sm">
+                <table className="table">
                 <thead>
                   <tr>
-                    <th>Folio de Venta</th>
-                    <th>Clave Cliente</th>
-                    <th>Nombre</th>
-                    <th>Total</th>
-                    <th>Fecha</th>
+                    <th scope="col">Folio Venta</th>
+                    <th scope="col">Clave Cliente</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Fecha</th>
                   </tr>
                 </thead>
-              </Table>
+                <tbody>
+            {this.state.venta.map(art => {
+              return (
+                <tr key={art.id+2}>
+                  <td>{art.id}</td>
+                  <td>{this.clave(art.nombre)}</td>
+                  <td>{art.nombre}</td>
+                  <td>{art.total}</td>
+                  <td>{art.fecha}</td>
+                </tr>
+                  );
+                  })}
+
+              </tbody>
+            </table>
             </div>
           </div>
         </div>

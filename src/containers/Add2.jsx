@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Card, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import moment from 'moment'
 
 
 import Autocomplete from "./Autocomplete";
-import Autocomplete2 from "./Autocomplete2";
 const style = {
   "background": "#007bff"
 }
-export class Add extends Component {
+export class Add2 extends Component {
   constructor(props) {
     super(props);
 
@@ -25,10 +23,7 @@ export class Add extends Component {
       newItem:'',
       list:[],
       Enganche:'',
-      BonificacionEnganche:'',
-      total:'',
-      contado:'',
-      folio:'1'
+      BonificacionEnganche:''
     };
   }
   addItem() {
@@ -57,23 +52,18 @@ export class Add extends Component {
     list.forEach(e =>{
       Enganche = parseInt(Enganche) + parseInt(e.precio)
     })
-    var contado = Enganche
     var EngancheCal = .20 * parseInt(Enganche)
     console.log(EngancheCal)
     
     var BonificacionEnganche = parseInt(EngancheCal) *((2.8*12/100))
     total = parseInt(Enganche) - parseInt(EngancheCal) - parseInt(BonificacionEnganche)
     // update state with new list, reset the new item input
-    console.log(total)
-    console.log(contado)
-    localStorage.setItem("total",total)
     this.setState({
       list,
       newItem: "",
       Enganche:EngancheCal,
       BonificacionEnganche,
-      total,
-      contado
+      total
     });
   }
 
@@ -87,28 +77,8 @@ export class Add extends Component {
     console.log(can*precio)
     return precio * can;
   }
-  calculaAhorro(pre){
-    if(this.state.contado - this.state.contado*(1+(2.8*pre)/100)>0){
-      return this.state.contado - this.state.contado*(1+(2.8*pre)/100)
-    }
-    return this.state.contado - this.state.contado*(1+(2.8*pre)/100)>0
-  }
-  pres(){
-    console.log("algo")
-  }
-  guardar() {
-    let self = this;   
-     
-    fetch('http://localhost:8080/app/venta', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        clavecliente: "2",
-        nombre: String(localStorage.getItem("name")),
-        total: String(localStorage.getItem("total")),
-        fecha: String(moment().format('L'))
-      })
-    })
+  log(){
+      console.log("algo")
   }
   componentDidMount() {
     let self = this;
@@ -132,20 +102,6 @@ export class Add extends Component {
         })
         return user
       })
-    fetch('http://134.209.71.172:8080/app/venta', {
-      method: 'GET',
-      headers: new Headers({
-        "Access-Control-Allow-Origin": "*"
-      })
-    })
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (resJson) {
-      self.setState({
-        longitud:resJson.length+1
-      })
-    })
     fetch('http://134.209.71.172:8080/app/articulo', {
       method: 'GET',
       headers: new Headers({
@@ -185,9 +141,7 @@ export class Add extends Component {
             longitud:resJson.length+1
           })
         })
-
   };
-
 
   render() {
     console.log(this.state.list)
@@ -204,7 +158,7 @@ export class Add extends Component {
                 <span className="badge badge-primary">Cliente</span>
               </div>
               <div className="col-3">
-                <Autocomplete2
+                <Autocomplete
                   suggestions={
                     this.state.user
                   }
@@ -267,10 +221,9 @@ export class Add extends Component {
               {this.state.Enganche}
               </div></li>
               <li className="list-group-item">Bonificacion Enganche <div className="float-right">{this.state.BonificacionEnganche}</div></li>
-              <li className="list-group-item">total <div className="float-right">{this.state.total}</div></li>
+              <li className="list-group-item">total <div className="float-right">{120}</div></li>
             </ul>
             <br/>
-
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -280,44 +233,47 @@ export class Add extends Component {
               <tbody>
                 <tr>
                   <td>3 ABONOS DE</td>
-                  <td>{this.state.total/3}</td>
-                  <td>TOTAL A PAGAR {this.state.contado*(1+(2.8*3)/100)}</td>
-                  <td>SE AHORRA {this.state.contado - this.state.contado*(1+(2.8*3)/100)}</td>
-                  <td><input type="radio" id='regular' value= {this.state.contado*(1+(2.8*3)/100)} onKeyPress={this.pres()} name="optradio"/></td>
+                  <td>{120}</td>
+                  <td>TOTAL A PAGAR {120}</td>
+                  <td>SE AHORRA {120}</td>
+                  <td><input type="radio" id='regular' onKeyPress={this.log()} name="optradio"/></td>
                 </tr>
                 <tr>
                   <td>6 ABONOS DE</td>
-                  <td>{this.state.total/6}</td>
-                  <td>TOTAL A PAGAR {this.state.contado*(1+(2.8*6)/100)}</td>
-                  <td>SE AHORRA {this.state.contado - this.state.contado*(1+(2.8*6)/100)}</td>
+                  <td>{120}</td>
+                  <td>TOTAL A PAGAR {120}</td>
+                  <td>SE AHORRA {120}</td>
                   <td><input type="radio" id='regular' name="optradio"/></td>
                 </tr>
                 <tr>
                   <td>9 ABONOS DE</td>
-                  <td>{this.state.total/9}</td>
-                  <td>TOTAL A PAGAR {this.state.contado*(1+(2.8*9)/100)}</td>
-                  <td>SE AHORRA {this.state.contado - this.state.contado*(1+(2.8*9)/100)}</td>
+                  <td>{120}</td>
+                  <td>TOTAL A PAGAR {120}</td>
+                  <td>SE AHORRA {120}</td>
                   <td><input type="radio" id='regular' name="optradio"/></td>
                 </tr>
                 <tr>
                   <td>12 ABONOS DE</td>
-                  <td>{this.state.total/12}</td>
-                  <td>TOTAL A PAGAR {this.state.contado*(1+(2.8*12)/100)}</td>
-                  <td>SE AHORRA {this.state.contado - this.state.contado*(1+(2.8*12)/100)}</td>
+                  <td>{120}</td>
+                  <td>TOTAL A PAGAR {120}</td>
+                  <td>SE AHORRA {120}</td>
                   <td><input type="radio" id='regular' name="optradio"/></td>
                 </tr>
               </tbody>
             </Table>
+
+
           </Card.Body>
         </Card>
         <div className="row float-right">
         <Link to="/ventas" className="col-5 float-right btn btn-success">Cancelar</Link>
         <div className="col-1"></div>
-        <Link to="/ventas" onClick={this.guardar} className="col-5 float-right btn btn-success">Guardar</Link>
+        <Link className="col-5 float-right btn btn-success">Guardar</Link>
         </div>
       </div>
     )
   }
 }
 
-export default Add
+export default Add2
+
