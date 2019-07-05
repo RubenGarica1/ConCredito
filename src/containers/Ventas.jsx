@@ -69,6 +69,14 @@ export class Ventas extends Component {
           })
           return user
         })
+        fetch('http://134.209.71.172:3000/Vsuma', {
+          method: 'post',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({"key":"Vendimia"})
+        })
+        .then(function (res) {
+          return res.json();
+        })
   }
   render() {
     return (
