@@ -19,7 +19,7 @@ export class Add extends Component {
       articulosAll: [],
       Cantidad:1,
       newdato:'',
-      value:'as',
+      value:'',
       ArticulosSel: [],
       longitud:'',
       newItem:'',

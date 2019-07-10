@@ -7,6 +7,10 @@ import Ventas from './containers/Ventas'
 import Add from './containers/Add';
 import Add2 from './containers/Add2';
 import Todo from './containers/todo';
+import AddCliente from './containers/cliente/AddCliente'
+import Cliente from './containers/cliente/Cliente'
+import Articulo from './containers/articulo/Articulo'
+import AddArticulo from './containers/articulo/AddArticulos'
 const date = new Date();
 
 const NavB = () => (
@@ -17,7 +21,7 @@ const NavB = () => (
           <NavDropdown title="Inicio" id="basic-nav-dropdown">
             <Link className="dropdown-item" to="/ventas/">Ventas</Link>
             <NavDropdown.Divider />
-            <Link className="dropdown-item" to="/Clientes/">Clientes</Link>
+            <Link className="dropdown-item" to="/Cliente/">Clientes</Link>
             <Link className="dropdown-item" to="/Articulos/">Articulos</Link>
             <Link className="dropdown-item" to="/Configuración/">Configuración</Link>
           </NavDropdown>
@@ -34,8 +38,6 @@ const NavB = () => (
 )
 
 
-const Clientes = () => <h1 className="container">Clientes</h1>
-const Articulos = () => <h1 className="container">Articulos</h1>
 const Configuración = () => <h1 className="container">Configuración</h1>
 
 
@@ -45,8 +47,10 @@ const App = () => (
     <Switch>
       <Route exact path="/Ventas/" component={Ventas} />
       <Route exact path="/Ventas/Add" component={Add} />
-      <Route exact path="/Clientes/" component={Clientes} />
-      <Route exact path="/Articulos/" component={Articulos} />
+      <Route exact path="/Cliente/" component={Cliente} />
+      <Route exact path="/Cliente/Add" component={AddCliente} />
+      <Route exact path="/Articulos/" component={Articulo} />
+      <Route exact path="/Articulos/Add" component={AddArticulo} />
       <Route exact path="/Configuración/" component={Configuración} />
       <Route exact path="/Ventas/add2" component={Add2} />
       <Route exact path="/Ventas/Todo" component={Todo} />
