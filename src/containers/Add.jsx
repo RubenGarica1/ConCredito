@@ -289,6 +289,7 @@ export class Add extends Component {
         "Access-Control-Allow-Origin": "*"
       })
     })
+    
       .then(function (res) {
         return res.json();
       })
