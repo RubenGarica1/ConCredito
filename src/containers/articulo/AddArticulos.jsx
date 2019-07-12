@@ -21,7 +21,7 @@ export class AddCliente extends Component {
   }
   componentDidMount() {
     let self = this;
-    fetch('http://134.209.71.172:8080/app/articulo/count', {
+    fetch('https://spring.rubencode.com/app/articulo/count', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -41,7 +41,7 @@ export class AddCliente extends Component {
     this.setState({[e.target.name]: e.target.value})
    }
   post(){
-    fetch(`http://134.209.71.172:8080/app/articulo`, {
+    fetch(`https://spring.rubencode.com/app/articulo`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

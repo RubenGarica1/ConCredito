@@ -14,7 +14,7 @@ export class Configuracion extends Component {
   }
   componentDidMount() {
     let self = this;
-    fetch('http://134.209.71.172:8080/app/configuracion', {
+    fetch('https://spring.rubencode.com/app/configuracion', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -39,7 +39,7 @@ export class Configuracion extends Component {
    }
  
   guardar() {
-    fetch('http://134.209.71.172:8080/app/configuracion/1', {
+    fetch('https://spring.rubencode.com/app/configuracion/1', {
       method: 'PUT',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({

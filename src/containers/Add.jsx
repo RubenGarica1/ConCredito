@@ -157,7 +157,7 @@ export class Add extends Component {
         })
         if(userbool){
           
-          fetch('http://134.209.71.172:8080/app/venta', {
+          fetch('https://spring.rubencode.com/app/venta', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -193,7 +193,7 @@ export class Add extends Component {
             console.log(dato)
             console.log(e)
             console.log(this.state['E'+e.descripcion])
-            fetch(`http://134.209.71.172:8080/app/articulo/existencia/${e.id}`, {
+            fetch(`https://spring.rubencode.com/app/articulo/existencia/${e.id}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -224,7 +224,7 @@ export class Add extends Component {
   }
   componentDidMount() {
     let self = this;
-    fetch('http://134.209.71.172:8080/app/cliente', {
+    fetch('https://spring.rubencode.com/app/cliente', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -244,7 +244,7 @@ export class Add extends Component {
         })
         return user
       })
-    fetch('http://134.209.71.172:8080/app/venta', {
+    fetch('https://spring.rubencode.com/app/venta', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -258,7 +258,7 @@ export class Add extends Component {
           longitud: resJson.length + 1
         })
       })
-    fetch('http://134.209.71.172:8080/app/articulo', {
+    fetch('https://spring.rubencode.com/app/articulo', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -283,7 +283,7 @@ export class Add extends Component {
         })
         return articulos
       })
-    fetch('http://134.209.71.172:8080/app/venta', {
+    fetch('https://spring.rubencode.com/app/venta', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -298,7 +298,7 @@ export class Add extends Component {
         })
       })
 
-      fetch('http://134.209.71.172:8080/app/configuracion', {
+      fetch('https://spring.rubencode.com/app/configuracion', {
         method: 'GET',
         headers: new Headers({
           "Access-Control-Allow-Origin": "*"

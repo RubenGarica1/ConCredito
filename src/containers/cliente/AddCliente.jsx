@@ -22,7 +22,7 @@ export class AddCliente extends Component {
   componentDidMount() {
     let self = this;
     if (this.props.location.pathname === '/cliente/edit') {
-      fetch(`http://134.209.71.172:8080/app/cliente/${this.props.location.state.id}`, {
+      fetch(`https://spring.rubencode.com/app/cliente/${this.props.location.state.id}`, {
         method: 'GET',
         headers: new Headers({
           "Access-Control-Allow-Origin": "*"
@@ -45,7 +45,7 @@ export class AddCliente extends Component {
           return user
         })
     }
-    fetch('http://134.209.71.172:8080/app/cliente/count', {
+    fetch('https://spring.rubencode.com/app/cliente/count', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -62,7 +62,7 @@ export class AddCliente extends Component {
   }
   post() {
     if (this.props.location.pathname === '/cliente/edit') {
-      fetch(`http://134.209.71.172:8080/app/cliente/${this.props.location.state.id}`, {
+      fetch(`https://spring.rubencode.com/app/cliente/${this.props.location.state.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -73,7 +73,7 @@ export class AddCliente extends Component {
         })
       })
     } else {
-      fetch(`http://134.209.71.172:8080/app/cliente`, {
+      fetch(`https://spring.rubencode.com/app/cliente`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

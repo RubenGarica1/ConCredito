@@ -12,7 +12,7 @@ export class Articulo extends Component {
   }
   componentDidMount() {
     let self = this;
-    fetch('http://134.209.71.172:8080/app/articulo', {
+    fetch('https://spring.rubencode.com/app/articulo', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"

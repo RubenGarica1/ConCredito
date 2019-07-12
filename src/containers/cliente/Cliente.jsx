@@ -13,7 +13,7 @@ export class Cliente extends Component {
   }
   componentDidMount() {
     let self = this;
-    fetch('http://134.209.71.172:8080/app/cliente', {
+    fetch('https://spring.rubencode.com/app/cliente', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"

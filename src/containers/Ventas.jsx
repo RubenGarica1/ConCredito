@@ -32,7 +32,7 @@ export class Ventas extends Component {
   componentDidMount() {
     
     let self = this;
-    fetch('http://134.209.71.172:8080/app/venta', {
+    fetch('https://spring.rubencode.com/app/venta', {
       method: 'GET',
       headers: new Headers({
         "Access-Control-Allow-Origin": "*"
@@ -51,7 +51,7 @@ export class Ventas extends Component {
         })
         return venta
       })
-      fetch('http://134.209.71.172:8080/app/cliente', {
+      fetch('https://spring.rubencode.com/app/cliente', {
         method: 'GET',
         headers: new Headers({
           "Access-Control-Allow-Origin": "*"
