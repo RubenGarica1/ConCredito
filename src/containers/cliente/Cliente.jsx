@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import add from './../add.png';
+import edit from './edit.png';
 
 export class Cliente extends Component {
   constructor(props) {
@@ -58,7 +59,17 @@ export class Cliente extends Component {
                     return (
                       <tr key={art.id + 2} >
                         <td>{art.id}</td>
-                        <td >{art.nombre}</td>
+                        <td>{art.nombre}</td>
+                        <td>
+                          <Link to={{
+                            pathname: '/cliente/edit',
+                            state: {
+                              id: art.id
+                            }
+                          }}>
+                            <img src={edit} width="25" alt="add imagen" />
+                          </Link>
+                        </td>
                       </tr>
                     );
                   })}

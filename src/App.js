@@ -11,6 +11,7 @@ import AddCliente from './containers/cliente/AddCliente'
 import Cliente from './containers/cliente/Cliente'
 import Articulo from './containers/articulo/Articulo'
 import AddArticulo from './containers/articulo/AddArticulos'
+import Configuracion from './containers/configuracion/Configuracion'
 const date = new Date();
 
 const NavB = () => (
@@ -38,7 +39,6 @@ const NavB = () => (
 )
 
 
-const Configuración = () => <h1 className="container">Configuración</h1>
 
 
 const App = () => (
@@ -49,9 +49,10 @@ const App = () => (
       <Route exact path="/Ventas/Add" component={Add} />
       <Route exact path="/Cliente/" component={Cliente} />
       <Route exact path="/Cliente/Add" component={AddCliente} />
+      <Route exact path="/Cliente/:edit"  component={AddCliente} />
       <Route exact path="/Articulos/" component={Articulo} />
       <Route exact path="/Articulos/Add" component={AddArticulo} />
-      <Route exact path="/Configuración/" component={Configuración} />
+      <Route exact path="/Configuración/" component={Configuracion} />
       <Route exact path="/Ventas/add2" component={Add2} />
       <Route exact path="/Ventas/Todo" component={Todo} />
       <Redirect exact from="/" to="/Ventas/" />
