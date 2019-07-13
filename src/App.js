@@ -11,7 +11,7 @@ import AddCliente from './containers/cliente/AddCliente'
 import Cliente from './containers/cliente/Cliente'
 import Articulo from './containers/articulo/Articulo'
 import AddArticulo from './containers/articulo/AddArticulos'
-import Configuracion from './containers/configuracion/Configuracion'
+import Configuracion from './containers/configuracion/configuracion'
 const date = new Date();
 
 const NavB = () => (
